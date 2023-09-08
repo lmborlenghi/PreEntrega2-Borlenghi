@@ -1,13 +1,27 @@
+body{
+    background-color: #3d621a;
+}
 .titulo{
     color: red;
     text-align: center;
+    text-decoration: underline;
+}
+
+.titulo2{
+    text-align: center;
+    font-size: 30px;
+    font-weight:bold;
+    font-style: italic;
 }
 
 .imagen{
     text-align: center;
+    transform: rotateZ(90deg);
+    margin-top: 20vh;
+    
 }
 
 .fotoRuleta{
-    width: 80vw;
+    width: 90vw;
     
 }

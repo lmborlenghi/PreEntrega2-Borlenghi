@@ -14,15 +14,18 @@ let columna = 0;
 let eleccionColumna = 0;
 let docena = 0;
 let eleccionDocena = 0;
+let eleccionJugador = 0;
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////
 
 // Definir los números negros en la ruleta
 const numerosBlack = {
     numeros: [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35],
     color: 'negro'
   };
+
   // Definir los números rojos en la ruleta
 const numerosRed = {
     numeros: [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, ,27, 30, 32, 34, 36],
@@ -92,6 +95,35 @@ let juega = prompt ("JUEGA? Ingrese Si o No");
     console.log("Jugador apuesta: $ "+ apuestaJ1);
 
 
+
+    //PARA BUSCAR QUE NUMEROS PERTENECEN A CADA CATEGORIA DE APUESTA//////////////////////////
+    const numsRuleta = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,35, 36];
+    const numsPares = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36];
+    const numsImpares = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35];
+    const nums1doc = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const nums2doc = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+    const nums3doc = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
+    const nums1col = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
+    const nums2col = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
+    const nums3col = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
+
+    const numerosRuleta = [
+      {tipo: "Todos", numsRuleta},
+      {tipo: "Pares", numsPares},
+      {tipo: "Impares", numsImpares},
+      {tipo: "1ra Col", nums1col},
+      {tipo: "2da Col", nums2col},
+      {tipo: "3ra Col", nums3col},
+      {tipo: "1ra Doc", nums1doc},
+      {tipo: "2da Doc", nums2doc},
+      {tipo: "3ra Doc", nums3doc},
+    ]
+    //Lo dejo comentado para que no salte el prompt en principio
+    /* let pregunta=prompt("Ingrese: \nTodos \nPares \nImpares \n1ra Col \n2da Col \n3ra Col \n1ra Doc \n2da Doc \n3ra Doc \nPara saber que numero pertenece a cada categoria")
+    const busqueda=numerosRuleta.find ((numero)=>numero.tipo === pregunta);
+    console.log(busqueda) */
+
+
     //ELEGIR DONDE APOSTAR: NUMERO, COLOR, PAR/IMPAR, COLUMNA, DOCENA (EN UNA FUNCION) --------------------------------
     function dondeApostar() {
     let eleccionJ1 = prompt("Apuesta a:\n1 - Numeros \n2 - Color \n3 - Par o Impar \n4 - Columna \n5 - Docena");
@@ -132,6 +164,8 @@ let juega = prompt ("JUEGA? Ingrese Si o No");
             console.log("Eligio: " + docena + " docena");
         }
 
+        
+        eleccionJugador=eleccionJ1;
     }
     dondeApostar();
 
@@ -250,11 +284,46 @@ let juega = prompt ("JUEGA? Ingrese Si o No");
 
     
 
+    
+
+
+/* // Función para verificar si la apuesta del jugador coincide con una categoría específica
+function verificarApuesta(apuesta, categoria) {
+    return categoria.numeros.includes(apuesta);
+  }
+    
+  // Después de obtener la elección del jugador y la apuesta, puedes usar esta función para verificar si ganó
+  if (eleccionJugador == 1) {
+    // El jugador eligió apostar a números
+    if (verificarApuesta(numeroApostado, numerosBlack)) {
+      console.log("El número apostado es Negro.");
+    } else if (verificarApuesta(numeroApostado, numerosRed)) {
+      console.log("El número apostado es Rojo.");
+    } else {
+      console.log("El número apostado no coincide con ninguna categoría.");
+    }
+  } else if (eleccionJugador == 2) {
+    // El jugador eligió apostar a color
+    if (colorApuesta.toLowerCase() === 'rojo') {
+      if (verificarApuesta(numero, numerosRed)) {
+        console.log("Apuesta rojo y Sale Rojo. GANA: $" + (apuestaJ1 * 2));
+      } else {
+        console.log("Apuesta rojo y Sale Negro. PIERDE.");
+      }
+    } else if (colorApuesta.toLowerCase() === 'negro') {
+      if (verificarApuesta(numero, numerosBlack)) {
+        console.log("Apuesta negro y Sale Negro. GANA: $" + (apuestaJ1 * 2));
+      } else {
+        console.log("Apuesta negro y Sale Rojo. PIERDE.");
+      }
+    } else {
+      console.log("Color de apuesta no válido.");
+    }
+  } */
+
 
 
 
 
     juega = prompt("Juega otra vez? Si - No");
 }
-
-
