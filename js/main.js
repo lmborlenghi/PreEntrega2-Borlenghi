@@ -118,7 +118,7 @@ let juega = prompt ("JUEGA? Ingrese Si o No");
       {tipo: "2da Doc", nums2doc},
       {tipo: "3ra Doc", nums3doc},
     ]
-    //Lo dejo comentado para que no salte el prompt en principio
+    //Lo dejo comentado para que no salte el prompt en principio. Un buscador para ver que numeros pertenecen a cada seccion.
     /* let pregunta=prompt("Ingrese: \nTodos \nPares \nImpares \n1ra Col \n2da Col \n3ra Col \n1ra Doc \n2da Doc \n3ra Doc \nPara saber que numero pertenece a cada categoria")
     const busqueda=numerosRuleta.find ((numero)=>numero.tipo === pregunta);
     console.log(busqueda) */
